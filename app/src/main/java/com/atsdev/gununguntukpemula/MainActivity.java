@@ -31,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
         list = new ArrayList<>();
 
         if (savedInstanceState == null) {
-            setActionBarTitle("Mode List");
+            setActionBarTitle("Mode CardView");
             list.addAll(DestinasiData.getListData());
-            showRecyclerList();
-            mode = R.id.action_list;
+            showRecyclerCardView();
+            mode = R.id.action_cardview;
         } else {
             String stateTitle = savedInstanceState.getString(STATE_TITLE);
             ArrayList<Destinasi> stateList = savedInstanceState.getParcelableArrayList(STATE_LIST);

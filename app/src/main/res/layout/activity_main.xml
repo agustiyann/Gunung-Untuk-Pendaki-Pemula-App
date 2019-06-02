@@ -10,5 +10,5 @@
         android:id="@+id/rv_category"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_row_destinasi"/>
+        tools:listitem="@layout/item_cardview_destinasi"/>
 </RelativeLayout>

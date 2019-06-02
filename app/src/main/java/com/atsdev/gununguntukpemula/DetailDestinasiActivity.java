@@ -15,32 +15,37 @@ import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 
 public class DetailDestinasiActivity extends AppCompatActivity {
-    ImageView img;
-    TextView nameTxt, remarkTxt, detailTxt, lokasiTxt;
+    public static final String EXTRA_NAMA= "extra_name";
+    public static final String EXTRA_REMARK= "extra_keterangan";
+    public static final String EXTRA_FOTO= "extra_foto";
+    public static final String EXTRA_DETAIL= "extra_detail";
+    public static final String EXTRA_LOKASI= "extra_lokasi";
+
+    TextView tvNama, tvRemark, detailTxt, lokasiTxt;
+    ImageView fotoDestinasi;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_destinasi);
-
-        Intent intent = getIntent();
-
-        String name= intent.getExtras().getString("name");
-        String pos= intent.getExtras().getString("remark");
-        int image= intent.getExtras().getInt("photo");
-        String detail = intent.getExtras().getString("detail");
-        String lokasi = intent.getExtras().getString("lokasi");
-
-        img= findViewById(R.id.img_item_photo);
-        nameTxt=findViewById(R.id.tv_item_name);
-        remarkTxt=findViewById(R.id.tv_item_remarks);
+        tvNama = findViewById(R.id.tv_item_name);
+        tvRemark = findViewById(R.id.tv_item_remarks);
+        fotoDestinasi =findViewById(R.id.img_item_photo);
         detailTxt = findViewById(R.id.content_detail);
         lokasiTxt = findViewById(R.id.content_lokasi);
 
-        img.setImageResource(image);
-        nameTxt.setText(name);
-        remarkTxt.setText(pos);
-        detailTxt.setText(detail);
-        lokasiTxt.setText(lokasi);
+        String nama = getIntent().getStringExtra(EXTRA_NAMA);
+        String remark = getIntent().getStringExtra(EXTRA_REMARK);
+        String foto = getIntent().getStringExtra(EXTRA_FOTO);
+        String detill = getIntent().getStringExtra(EXTRA_DETAIL);
+        String lokk = getIntent().getStringExtra(EXTRA_LOKASI);
 
+        tvNama.setText(nama);
+        tvRemark.setText(remark);
+        detailTxt.setText(detill);
+        lokasiTxt.setText(lokk);
+        Glide.with(DetailDestinasiActivity.this)
+                .load(foto).apply(new RequestOptions()
+                .override(350, 550))
+                .into(fotoDestinasi);
     }
 }

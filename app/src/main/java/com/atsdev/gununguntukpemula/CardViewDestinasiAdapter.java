@@ -57,7 +57,7 @@ public class CardViewDestinasiAdapter extends RecyclerView.Adapter<CardViewDesti
         cardViewViewHolder.btnFavorite.setOnClickListener(new CustomOnItemClickListener(i, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
             public void onItemClicked(View view, int position) {
-                Toast.makeText(context, "Favorite "+getListDestinasi().get(position).getName(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Suka "+getListDestinasi().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
 
@@ -68,20 +68,18 @@ public class CardViewDestinasiAdapter extends RecyclerView.Adapter<CardViewDesti
             }
         }));
 
-        cardViewViewHolder.imgPhoto.setOnClickListener(new View.OnClickListener() {
+        cardViewViewHolder.imgPhoto.setOnClickListener(new CustomOnItemClickListener(i, new CustomOnItemClickListener.OnItemClickCallback() {
             @Override
-            public void onClick(View v) {
+            public void onItemClicked(View view, int position) {
                 Intent intent = new Intent(context, DetailDestinasiActivity.class);
-
-                intent.putExtra("name", p.getName());
-                intent.putExtra("remark", p.getRemarks());
-                intent.putExtra("photo", p.getPhoto());
-                intent.putExtra("detail", p.getDeskripsi());
-                intent.putExtra("lokasi", p.getLokasi());
+                intent.putExtra(DetailDestinasiActivity.EXTRA_NAMA, getListDestinasi().get(position).getName());
+                intent.putExtra(DetailDestinasiActivity.EXTRA_REMARK, getListDestinasi().get(position).getRemarks());
+                intent.putExtra(DetailDestinasiActivity.EXTRA_FOTO, getListDestinasi().get(position).getPhoto());
+                intent.putExtra(DetailDestinasiActivity.EXTRA_DETAIL, getListDestinasi().get(position).getDeskripsi());
+                intent.putExtra(DetailDestinasiActivity.EXTRA_LOKASI, getListDestinasi().get(position).getLokasi());
                 context.startActivity(intent);
             }
-        });
-
+        }));
 
     }
 

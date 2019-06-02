@@ -62,6 +62,8 @@ public class Destinasi implements Parcelable {
         dest.writeString(this.name);
         dest.writeString(this.remarks);
         dest.writeString(this.photo);
+        dest.writeString(this.deskripsi);
+        dest.writeString(this.lokasi);
     }
 
     public Destinasi() {
@@ -71,6 +73,8 @@ public class Destinasi implements Parcelable {
         this.name = in.readString();
         this.remarks = in.readString();
         this.photo = in.readString();
+        this.deskripsi = in.readString();
+        this.lokasi = in.readString();
     }
 
     public static final Parcelable.Creator<Destinasi> CREATOR = new Parcelable.Creator<Destinasi>() {

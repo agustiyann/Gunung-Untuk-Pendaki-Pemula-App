@@ -1,9 +1,9 @@
 <resources>
-    <string name="app_name">GunungUntukPemula</string>
+    <string name="app_name">Gunung Untuk Pemula</string>
     <string name="list">List</string>
     <string name="grid">Grid</string>
     <string name="with_cardview">CardView</string>
-    <string name="favorite">Favorite</string>
+    <string name="favorite">Suka</string>
     <string name="share">Share</string>
     <string name="lokasi">Lokasi</string>
 </resources>
