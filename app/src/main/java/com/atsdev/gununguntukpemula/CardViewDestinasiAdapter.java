@@ -1,6 +1,7 @@
 package com.atsdev.gununguntukpemula;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -43,7 +44,7 @@ public class CardViewDestinasiAdapter extends RecyclerView.Adapter<CardViewDesti
 
     @Override
     public void onBindViewHolder(@NonNull CardViewDestinasiAdapter.CardViewViewHolder cardViewViewHolder, int i) {
-        Destinasi p = getListDestinasi().get(i);
+        final Destinasi p = getListDestinasi().get(i);
 
         Glide.with(context)
                 .load(p.getPhoto())
@@ -66,6 +67,20 @@ public class CardViewDestinasiAdapter extends RecyclerView.Adapter<CardViewDesti
                 Toast.makeText(context, "Share "+getListDestinasi().get(position).getName(), Toast.LENGTH_SHORT).show();
             }
         }));
+
+        cardViewViewHolder.imgPhoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailDestinasiActivity.class);
+
+                intent.putExtra("name", p.getName());
+                intent.putExtra("remark", p.getRemarks());
+                intent.putExtra("photo", p.getPhoto());
+                intent.putExtra("detail", p.getDeskripsi());
+                intent.putExtra("lokasi", p.getLokasi());
+                context.startActivity(intent);
+            }
+        });
 
 
     }

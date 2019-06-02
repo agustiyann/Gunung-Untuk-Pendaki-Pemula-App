@@ -4,7 +4,29 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Destinasi implements Parcelable {
-    private String name, remarks, photo;
+    private String name;
+    private String remarks;
+    private String photo;
+    private String deskripsi;
+    private String lokasi;
+
+    public String getDeskripsi() {
+        return deskripsi;
+    }
+
+    public void setDeskripsi(String deskripsi) {
+        this.deskripsi = deskripsi;
+    }
+
+    public String getLokasi() {
+        return lokasi;
+    }
+
+    public void setLokasi(String lokasi) {
+        this.lokasi = lokasi;
+    }
+
+
 
     public String getName() {
         return name;
